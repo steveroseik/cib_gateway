@@ -1,11 +1,11 @@
 <html>
     <head>
-        <script src="https://cibpaynow.gateway.mastercard.com/static/checkout/checkout.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
+        <script src="https://cibpaynow.gateway.mastercard.com/static/checkout/checkout.min.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
         <script>
             setTimeout(() =>{
                 Checkout.configure({
                     session: { 
-            	        id: 'SESSION0002698125167M1563245L46'
+            	        id: 'SESSION0002853722396L7321299M24'
        			    },
             });
             Checkout.showEmbeddedPage('#embed-target');
@@ -14,7 +14,7 @@
     </head>
     <body>
        ...
-      <div id="embed-target"> </div> 
+      <div id="embed-target" style="max-height: 323px; max-width: 323px; overflow: hidden; transition: max-height 0.5s ease-out 0s;"> </div> 
       <input type="button" value="Pay with Embedded Page" onclick="Checkout.showEmbeddedPage('#embed-target');" />
       <input type="button" value="Pay with Payment Page" onclick="Checkout.showLightBox();" />
        ...
