@@ -6,11 +6,13 @@
     "env": {
         "GATEWAY_MERCHANT_ID": {
             "required": true,
-            "description": "Your TEST Gateway merchant ID (must begin with 'TEST')"
+            "description": "Your TEST Gateway merchant ID (must begin with 'TEST')",
+            "value": "TESTCIB701056"
         },
         "GATEWAY_API_PASSWORD": {
             "required": true,
-            "description": "Your TEST Gateway API password"
+            "description": "Your TEST Gateway API password",
+            "value": "147ee57e1df75948bc375850d3a512ee"
         },
         "GATEWAY_REGION": {
             "required": true,
@@ -20,7 +22,7 @@
         "GATEWAY_API_VERSION": {
             "required": true,
             "description": "The Gateway API version to target",
-            "value": "53"
+            "value": "71"
         }
     },
     "buildpacks": [
