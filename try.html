@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src="https://cibpaynow.gateway.mastercard.com/checkout/version/71/checkout.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
+        <script src="https://cibpaynow.gateway.mastercard.com/static/checkout/version/71/checkout.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
         <script>
             setTimeout(() =>{
                 Checkout.configure({
@@ -16,7 +16,7 @@
        ...
       <div id="embed-target"> </div> 
       <input type="button" value="Pay with Embedded Page" onclick="Checkout.showEmbeddedPage('#embed-target');" />
-      <input type="button" value="Pay with Payment Page" onclick="Checkout.showLightBox();" />
+      <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />
        ...
     </body>
 </html>
