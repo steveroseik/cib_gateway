@@ -8,18 +8,30 @@
             function cancelCallback() {
                   console.log('Payment cancelled');
             }
-            Checkout.configure({
-              session: { 
-            	id: 'SESSION0002083570398J9342097H44'
-       			}
+            setTimeout(() =>{
+                Checkout.configure({
+                    session: { 
+            	        id: 'SESSION0002953610025L8906678N17'
+       			},
+                   interaction: {
+                    merchant: {
+                        name: 'Your merchant name',
+                        address: {
+                            line1: '200 Sample St',
+                            line2: '1234 Example Town'            
+                        }    
+                    }
+               }
             });
+            Checkout.showEmbeddedPage('#embed-target');
+            }, 3000);
         </script>
     </head>
     <body>
        ...
       <div id="embed-target"> </div> 
       <input type="button" value="Pay with Embedded Page" onclick="Checkout.showEmbeddedPage('#embed-target');" />
-      <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />
+      <input type="button" value="Pay with Payment Page" onclick="Checkout.showLightBox();" />
        ...
     </body>
 </html>
