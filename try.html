@@ -2,21 +2,28 @@
     <head>
         <script src="https://cibpaynow.gateway.mastercard.com/static/checkout/checkout.min.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
         <script>
-            setTimeout(() =>{
+            function updateSession() {
+                var sessionId = document.getElementById("session-id-input").value;
                 Checkout.configure({
                     session: { 
-            	        id: 'SESSION0002408821976G8754755H61'
-       			    },
-            });
-            Checkout.showEmbeddedPage('#embed-target');
+                        id: sessionId
+                    }
+                });
+                Checkout.showEmbeddedPage('#embed-target');
+            }
+            
+            setTimeout(() => {
+                Checkout.showEmbeddedPage('#embed-target');
             }, 1000);
         </script>
     </head>
     <body>
-       ...
-      <div id="embed-target"> </div> 
-      <input type="button" value="Pay with Embedded Page" onclick="Checkout.showEmbeddedPage('#embed-target');" />
-      <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />
-       ...
+        <!-- ... -->
+        <div id="embed-target"></div>
+        <input type="text" id="session-id-input" placeholder="Enter session ID">
+        <input type="button" value="Update Session" onclick="updateSession();">
+        <input type="button" value="Pay with Embedded Page" onclick="Checkout.showEmbeddedPage('#embed-target');" />
+        <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />
+        <!-- ... -->
     </body>
 </html>
