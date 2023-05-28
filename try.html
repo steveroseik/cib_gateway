@@ -1,30 +1,15 @@
 <html>
     <head>
-        <script src="https://cibpaynow.gateway.mastercard.com/static/checkout/checkout.min.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
-        <script type="text/javascript">
-            function errorCallback(error) {
-                  console.log(JSON.stringify(error));
-            }
-            function cancelCallback() {
-                  console.log('Payment cancelled');
-            }
+        <script src="https://cibpaynow.gateway.mastercard.com/static/checkout/checkout.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
+        <script>
             setTimeout(() =>{
                 Checkout.configure({
                     session: { 
-            	        id: 'SESSION0002953610025L8906678N17'
-       			},
-                   interaction: {
-                    merchant: {
-                        name: 'Your merchant name',
-                        address: {
-                            line1: '200 Sample St',
-                            line2: '1234 Example Town'            
-                        }    
-                    }
-               }
+            	        id: 'SESSION0002635618858M2335392G37'
+       			    },
             });
             Checkout.showEmbeddedPage('#embed-target');
-            }, 3000);
+            }, 1000);
         </script>
     </head>
     <body>
