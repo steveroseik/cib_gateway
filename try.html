@@ -1,27 +1,36 @@
 <html>
-    <head>
-<h1> Support Checkout </h1>
-        <script src="https://test-gateway.mastercard.com/static/checkout/checkout.min.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
-        <script type="text/javascript">
-            function errorCallback(error) {
-                  console.log(JSON.stringify(error));
+<head>
+    <h1>Support Checkout</h1>
+    <script src="https://test-gateway.mastercard.com/static/checkout/checkout.min.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
+    <script type="text/javascript">
+        function errorCallback(error) {
+            console.log(JSON.stringify(error));
+        }
+
+        function cancelCallback() {
+            window.location.href = "https://www.google.com/";
+            console.log('Payment cancelled');
+        }
+
+        function updateSession() {
+                var sessionId = document.getElementById("session-id-input").value;
+                Checkout.configure({
+                    session: { 
+                        id: sessionId
+                    }
+                });
+                Checkout.showEmbeddedPage('#embed-target');
             }
-            function cancelCallback() {
-        window.location.href = "https://www.google.com/"
-                  console.log('Payment cancelled');
-            }
-            Checkout.configure({
-              session: { 
-                id: 'SESSION0002197464306H3185803J38'
-                   }
-            });
-        </script>
-    </head>
-    <body>
-       ...
-      <div id="embed-target"> </div> 
-      <input type="button" value="Pay with Embedded Page" onclick="Checkout.showEmbeddedPage('#embed-target');" />
-      <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />
-       ...
-    </body>
+    </script>
+</head>
+<body>
+    ...
+    <div id="embed-target"></div>
+    <input type="text" id="session-id" placeholder="Enter session ID" />
+    <button onclick="updateSessionId()">Update Session</button>
+    <br /><br />
+    <input type="button" value="Pay with Embedded Page" onclick="Checkout.showEmbeddedPage('#embed-target');" />
+    <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />
+    ...
+</body>
 </html>
