@@ -2,7 +2,7 @@
 <head>
     <script src="https://cibpaynow.gateway.mastercard.com/static/checkout/checkout.min.js" data-error="errorCallback" data-cancel="cancelCallback"></script>
     <script type="text/javascript">
-        function getParameterByName(name) {
+       function getParameterByName(name) {
             name = name.replace(/[\[\]]/g, "\\$&");
             var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
                 results = regex.exec(location.search);
@@ -20,15 +20,16 @@
             console.log('Payment cancelled');
         }
 
-        var sessionId = getParameterByName('sessionId');
-
+        setTimeout(() => {
+            var sessionId = getParameterByName('sessionId');
+        console.log(sessionId);
         Checkout.configure({
             session: {
                 id: sessionId
             }
         });
-
         Checkout.showEmbeddedPage('#embed-target');
+        }, 1000);
     </script>
 </head>
 <body>
